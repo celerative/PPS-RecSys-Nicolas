@@ -1,0 +1,32 @@
+mylib.Data
+	load_CSV()
+	load_json()
+
+mylib.Models
+	KNN
+	SVD
+	BPR
+	WARP	
+	ALS
+	User Average
+	Item Average
+	Global Average
+	
+	Cada modelo contiene los métodos:
+		__init__()
+		fit()
+		predict()
+		loads()
+		dump()
+
+mylib.Model_Selection
+	Cross_Validate()
+	GridSearchCV()
+
+mylib.Metrics
+	MAE()
+	RMSE()
+	AUC()
+	Precision()
+	Recall()
+	f1()
