@@ -1,7 +1,10 @@
 # Base class for all Metods
 
-class Base:
+from abc import ABCMeta, abstractmethod, abstractclassmethod
 
+class Base(metaclass=ABCMeta):
+
+    @abstractmethod
     def fit(self,trainset):
         """ Train an algorithm on a given training set.
 
@@ -16,6 +19,7 @@ class Base:
         """
         pass
 
+    @abstractmethod
     def predict(self,X):
         """ Predict using the linear model
         
@@ -24,18 +28,5 @@ class Base:
             
             Returns
                 C : array, shape (n_samples,)
-        """
-        pass
-
-    def load(file, *, fix_imports=True, encoding="ASCII", errors="strict"):
-        """ Read a pickled object representation from the open file object 'file' and return the reconstituted object hierarchy specified therein. 
-        """
-        pass
-
-    def dump(self):
-        """ Write a pickled representation of 'self' to the open file object given in the constructor.
-            
-            Parameters
-                self : model to save
         """
         pass

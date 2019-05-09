@@ -1,8 +1,8 @@
-mylib.Data
-	load_CSV()
+mylib.dataset
+	load_csv()
 	load_json()
 
-mylib.Models
+mylib.models
 	KNN
 	SVD
 	BPR
@@ -12,21 +12,23 @@ mylib.Models
 	Item Average
 	Global Average
 	
-	Cada modelo contiene los métodos:
+	Cada modelo contiene los mï¿½todos:
 		__init__()
 		fit()
 		predict()
-		loads()
-		dump()
 
-mylib.Model_Selection
-	Cross_Validate()
-	GridSearchCV()
+mylib.persistence
+	loads()
+	dump()
 
-mylib.Metrics
-	MAE()
-	RMSE()
-	AUC()
-	Precision()
-	Recall()
+mylib.model_selection
+	vross_validate()
+	gridsearchcv()
+
+mylib.metrics
+	mae()
+	rmse()
+	auc()
+	precision()
+	recall()
 	f1()

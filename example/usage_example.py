@@ -1,21 +1,21 @@
-from mylib.models import Algorithm
-import mylib.acurracy as Acurracy
+from models.svd import SVD
+import acurracy.rmse as rmse
 import pandas as pd
 
 #Load de dataset (example: using pandas)
 data = pd.read_scv('movies_metadata.csv', dtype='unicode')
 
 #Create model instance
-model = Algorithm()
+model = SVD()
 
 #Train model
-model.Train(data)
+model.fit(data)
 
 #Get recommendations
-predictions = model.getRecommendations()
+predictions = model.predict()
 for p in predictions:
     print("%s",p)
 
 #Get RMSE
-rmse = Acurracy.rmse(model)
-print("The RMSE is: %d",rmse)
+accuracy_rmse = rmse(model)
+print("The RMSE is: %d",accuracy_rmse)
