@@ -1,6 +1,8 @@
 #Metric: Area Under the Curve (AUC)
 
-def auc(y_true, y_score, average='macro'):
+from sklearn.metrics import roc_auc_score
+
+def auc(y_true, y_score, average='macro',**kwargs):
     """
     AUC: Compute Area Under the Receiver Operating Characteristic Curve (ROC AUC) from prediction scores.
 
@@ -23,4 +25,4 @@ def auc(y_true, y_score, average='macro'):
         auc : float
     
     """
-    pass
+    return roc_auc_score(y_true,y_score,average,**kwargs)

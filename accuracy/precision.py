@@ -1,6 +1,8 @@
 #Metric: precision
 
-def precision(y_true, y_pred,average='binary'):
+from sklearn.metrics import precision_score
+
+def precision(y_true, y_pred,average='binary',**kwargs):
     """ 
 
     Precision: Ability of the classifier not to label as positive a sample that is negative.
@@ -26,4 +28,4 @@ def precision(y_true, y_pred,average='binary'):
             Precision of the positive class in binary classification or weighted average of the precision of each class for the multiclass task.
 
     """
-    pass
+    return precision_score(y_true,y_pred,average,**kwargs)

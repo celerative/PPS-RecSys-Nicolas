@@ -1,6 +1,8 @@
 #Metric: Mean Absolute Error (MAE)
 
-def mae(y_true, y_pred,multioutput='uniform_average'):
+from sklearn.metrics import mean_absolute_error
+
+def mae(y_true, y_pred,multioutput='uniform_average',**kwargs):
     """
     
     The best value is 0.0.
@@ -17,4 +19,4 @@ def mae(y_true, y_pred,multioutput='uniform_average'):
         loss : float or ndarray of floats
     
     """
-    pass
+    return mean_absolute_error(y_true,y_pred,multioutput,**kwargs)

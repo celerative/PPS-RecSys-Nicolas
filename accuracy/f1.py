@@ -1,9 +1,8 @@
 #Metric: F1
 
-import precision
-import recall
+from sklearn.metrics import f1_score
 
-def f1():
+def f1(y_true,y_pred,average='binary',**kwargs):
     """
 
     F1: Weighted average of the precision and recall.
@@ -32,4 +31,4 @@ def f1():
     #p = precision.precision()
     #r = recall.recall()
     #f1 = 2 * (p * r) / (p + r)
-    pass
+    return f1_score(y_true,y_pred,average,**kwargs)

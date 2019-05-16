@@ -1,6 +1,8 @@
 #Metric: Recall
 
-def recall(y_true, y_pred,average='binary'):
+from sklearn.metrics import recall_score
+
+def recall(y_true,y_pred,average='binary', **kwargs):
     """ 
     
     Recall: Ability of the classifier to find all the positive samples.
@@ -24,4 +26,4 @@ def recall(y_true, y_pred,average='binary'):
             Recall of the positive class in binary classification or weighted average of the recall of each class for the multiclass task.
 
     """
-    pass
+    return recall_score(y_true,y_pred,average, **kwargs)
