@@ -1,21 +1,26 @@
 from models.als import ALS
 import pandas as pd
 
-# #Create data
-# userID = [9, 32, 2, 45, 1]
-# itemID = [1, 1, 1, 2, 2]
-# rating = [1, 1, 1, 1, 1]
-# data = coo_matrix((rating, (userID, itemID)))
-# data.eliminate_zeros()
-# print(data.shape)
-file_path = 'C:\\Users\\Nicolas\\Desktop\\ratings_small.csv'
-data = pd.read_csv(file_path, dtype='unicode')
+#Read File
+file_path = 'ratings_small.csv'
+df = pd.read_csv(file_path, dtype='unicode')
+
+#Change type of data
+df.userId = df.userId.astype(int)
+df.movieId = df.movieId.astype(int)
+df.rating = df.rating.astype(float)
+
+#Sort Values
+df.sort_values(by=['userId','movieId'],ascending=True)
+
+X = df[['userId','movieId']].values
+y = df.rating
 
 #Create model instance
 model = ALS()
 
 #Train model
-model.fit(data)
+model.fit(X,y)
 
 # get a prediction for specific users and items.
 uid = 1

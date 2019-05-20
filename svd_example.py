@@ -1,23 +1,32 @@
 from models.svd import SVD
 #import acurracy.rmse as rmse
-#import pandas as pd
+import pandas as pd
 
 #import sys
 #sys.path.insert(0,'C:\\Users\\Nicolas\\Desktop\\Recommender_Library\\modules')
 
 #from svd import SVD
 
-#Load de dataset (example: using pandas)
-#data = pd.read_scv('movies_metadata.csv', dtype='unicode')
-data = {'userID': [9, 32, 2, 45, 1],
-                'itemID': [1, 1, 1, 2, 2],
-                'rating': [3, 2, 4, 3, 1]}
+#Read File
+file_path = 'ratings_small.csv'
+df = pd.read_csv(file_path, dtype='unicode')
+
+#Change type of data
+df.userId = df.userId.astype(int)
+df.movieId = df.movieId.astype(int)
+df.rating = df.rating.astype(float)
+
+#Sort Values
+df.sort_values(by=['userId','movieId'],ascending=True)
+
+X = df[['userId','movieId']].values
+y = df.rating
 
 #Create model instance
 model = SVD()
 
 #Train model
-model.fit(data)
+model.fit(X,y)
 
 # get a prediction for specific users and items.
 uid = 32

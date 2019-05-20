@@ -11,21 +11,13 @@ class ALS(Base):
         """
         self.model = alternating_least_squares()
 
-    def fit(self,trainset):
-        #Convert type object to int and float
-        df = trainset
-        df.userId = df.userId.astype(int)
-        df.movieId = df.movieId.astype(int)
-        df.rating = df.rating.astype(float)
+    def fit(self,X,y):
+        #Create Coo-Matrix with X and y
+        data = coo_matrix((y, (X[:,0], X[:,1])))
 
-        df.sort_values(by=['userId','movieId'],ascending=True)
-
-        table = pd.pivot_table(df,values='rating',index=['userId'],columns=['movieId']) #create table
-        table = table.fillna(0) #change NaNs with 0
-        table = coo_matrix(table.values) #Create coo_matrix
-        table.eliminate_zeros() #eliminate 0
-        table.transpose() #rows:[n_items] ; columns:[n_users]
-        self.model.fit(table)
+        data.transpose() #rows:[n_items] ; columns:[n_users]
+        
+        self.model.fit(data)
 
     def predict(self,X):
         pass

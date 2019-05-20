@@ -3,6 +3,7 @@
 from lightfm import LightFM
 
 from .base import Base
+from scipy.sparse import coo_matrix
 
 class WARP(Base):
     def __init__(self):
@@ -10,20 +11,12 @@ class WARP(Base):
         """
         self.model = LightFM(loss='warp')
         
-    def fit(self,trainset):
-        #Convert type object to int and float
-        df = trainset
-        df.userId = df.userId.astype(int)
-        df.movieId = df.movieId.astype(int)
-        df.rating = df.rating.astype(float)
+    def fit(self,X,y):
+        #Create Coo-Matrix with X and y
+        data = coo_matrix((y, (X[:,0], X[:,1])))
 
-        df.sort_values(by=['userId','movieId'],ascending=True)
-
-        table = pd.pivot_table(df,values='rating',index=['userId'],columns=['movieId']) #create table
-        table = table.fillna(0) #change NaNs with 0
-        table = coo_matrix(table.values) #Create coo_matrix
-        table.eliminate_zeros() #eliminate 0
-        self.model.fit(table)
+        #Fit the model
+        self.model.fit(data)
 
     def predict(self,uid,iid):
         iid_array = [iid]
