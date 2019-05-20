@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from models.knn import KNN
 
 #Read File
-file_path = 'ratings_small.csv'
+file_path = 'xratings_small.csv'
 df = pd.read_csv(file_path, dtype='unicode')
 
 #Change type of data
