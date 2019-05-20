@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from models.knn import KNN
 
 #Read File
-file_path = 'xratings_small.csv'
+file_path = 'ratings_small.csv'
 df = pd.read_csv(file_path, dtype='unicode')
 
 #Change type of data
@@ -22,6 +22,7 @@ y = df.rating
 model = KNN(n_neighbors = 3)
 
 # Fit the classifier to the data
+#X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2,random_state=4)
 model.fit(X,y)
 
 # Testing model - Show first 5 model predictions on the test data
