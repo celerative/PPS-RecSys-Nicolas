@@ -4,7 +4,6 @@ from surprise import SVD as surprise_svd
 from surprise import dataset
 from surprise import Reader
 import pandas as pd
-from scipy.sparse import coo_matrix
 
 from .base import Base
 

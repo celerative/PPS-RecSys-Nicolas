@@ -23,6 +23,6 @@ class LightFM_BPR(Base, BaseEstimator):
         iid_array = [iid]
         return self.model.predict(uid,iid_array)
 
-    """ def score(self, X, y=None):
+    def score(self, X, y=None):
         # counts number of values bigger than mean
-        return(sum(self.predict(X)))  """
+        return(sum(self.predict(X)))

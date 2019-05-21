@@ -1,5 +1,4 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split
 
 from models.knn import KNN
 
@@ -19,16 +18,13 @@ X = df[['userId','movieId']].values
 y = df.rating
 
 # Create KNN model
-model = KNN(n_neighbors = 3)
+model = KNN()
 
-# Fit the classifier to the data
-#X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2,random_state=4)
+# Fit model
 model.fit(X,y)
 
-# Testing model - Show first 5 model predictions on the test data
-array_result = model.predict(X)[0:5]
-for a in array_result:
-    if(a == 0):
-        print("The pacient is not diabetic")
-    else:
-        print("The pacient is diabetic")
+# Testing model 
+uid = 32
+iid = 1
+pred = model.predict(uid,iid)
+print("The rating predict for the user " + str(uid) + " and the movie " + str(iid) + " is " + str(pred))
