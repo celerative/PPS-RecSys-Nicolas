@@ -20,4 +20,4 @@ class ALS(Model):
         self.model.fit(data)
 
     def recommend(self,user_id):
-        print(self.model.recommend(user_id,self.trainset.tocsr(),N=10))
+        return self.model.recommend(user_id,self.trainset.tocsr(),N=1)[0][0]
