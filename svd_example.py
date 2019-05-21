@@ -27,4 +27,4 @@ model.fit(X,y)
 uid = 1
 iid = 31
 pred = model.predict(uid, iid)
-print(pred)
+print("The rating predict for the user " + str(uid) + " and the movie " + str(iid) + " is " + str(pred))
