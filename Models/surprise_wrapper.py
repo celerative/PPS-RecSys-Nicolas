@@ -5,7 +5,7 @@ from surprise import dataset
 from surprise import Reader
 import pandas as pd
 
-from .base import Base
+from .base import PredictionModel
 
 class MyDataset(dataset.DatasetAutoFolds):
 
@@ -15,7 +15,7 @@ class MyDataset(dataset.DatasetAutoFolds):
                             zip(df[df.columns.values[0]], df[df.columns.values[1]], df[df.columns.values[2]])]
         self.reader=reader
 
-class SurpriseWrapper(Base):
+class SurpriseWrapper(PredictionModel):
     def __init__(self, model):
         self.model = model()
         self.trainset = None

@@ -2,11 +2,10 @@
 
 from lightfm import LightFM
 from scipy.sparse import coo_matrix
-from sklearn.base import BaseEstimator
 
-from .base import Base
+from .base import PredictionModel
 
-class LightFM_BPR(Base, BaseEstimator):
+class LightFM_BPR(PredictionModel):
     def __init__(self):
         """ Model inicialization 
         """
@@ -23,6 +22,5 @@ class LightFM_BPR(Base, BaseEstimator):
         iid_array = [iid]
         return self.model.predict(uid,iid_array)
 
-    def score(self, X, y=None):
-        # counts number of values bigger than mean
-        return(sum(self.predict(X)))
+    def recommend(self,user_id):
+        return None

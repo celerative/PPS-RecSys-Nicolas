@@ -2,10 +2,10 @@
 
 from lightfm import LightFM
 
-from .base import Base
+from .base import PredictionModel
 from scipy.sparse import coo_matrix
 
-class WARP(Base):
+class WARP(PredictionModel):
     def __init__(self):
         """ Model inicialization 
         """
@@ -21,3 +21,6 @@ class WARP(Base):
     def predict(self,uid,iid):
         iid_array = [iid]
         return self.model.predict(uid,iid_array)
+
+    def recommend(self,user_id):
+        return None

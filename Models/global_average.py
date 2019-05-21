@@ -1,9 +1,15 @@
 # Model: Global Average
 
-from .base import Base
+from .base import Model
 
-class GlobalAverage(Base):
+class GlobalAverage(Model):
     def __init__(self):
         """ Model inicialization 
         """
         pass
+    
+    def fit(self,X,y):
+        return None
+
+    def recommend(self,user_id):
+        return None
