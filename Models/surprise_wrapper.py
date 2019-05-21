@@ -12,7 +12,7 @@ class MyDataset(dataset.DatasetAutoFolds):
     def __init__(self, df, reader):
 
         self.raw_ratings = [(uid, iid, r, None) for (uid, iid, r) in
-                            zip(df.columns.values[0], df.columns.values[1], df['rating'])]
+                            zip(df[df.columns.values[0]], df[df.columns.values[1]], df[df.columns.values[2]])]
         self.reader=reader
 
 class SurpriseWrapper(Base):
@@ -31,6 +31,10 @@ class SurpriseWrapper(Base):
         self.model.fit(trainset_for_surprise)
     
     def predict(self,uid,iid):
-        inner_uid = self.trainset.to_inner_uid(str(uid))
-        inner_iid = self.trainset.to_inner_iid(str(iid))
-        return self.model.predict(inner_uid,inner_iid).est   
+        inner_uid = self.trainset.to_inner_uid(uid)
+        inner_iid = self.trainset.to_inner_iid(iid)
+        return self.model.predict(inner_uid,inner_iid).est
+        #print("Users: ",self.model.trainset.n_users)
+        #print("Items: ",self.model.trainset.n_items)
+        #print("Ratings: ",self.model.trainset.n_ratings)
+        #print(self.trainset._raw2inner_id_users)   
