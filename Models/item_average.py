@@ -1,15 +1,21 @@
 # Model: Item Average
 
-from .base import Model
+from .base import PredictionModel
 
-class ItemAverage(Model):
+import pandas as pd
+
+class ItemAverage(PredictionModel):
     def __init__(self):
         """ Model inicialization 
         """
-        pass
+        self.itemAverage = None
+        self.trainset = None
 
     def fit(self,X,y):
-        return None
+        #Convert numpy.array to Pandas.Dataframe
+        data = {'userId': X[:,0], 'itemId': X[:,1], 'rating': y.values}
+        self.trainset = pd.DataFrame.from_dict(data)
+        self.itemAverage = self.trainset.groupby('itemId')['rating'].mean() # item average
 
-    def recommend(self,user_id):
-        return None
+    def recommend(self,user_id,N=1): #recommend N users for de user with id: user_id
+        return self.trainset['itemId'].unique()[:N]
