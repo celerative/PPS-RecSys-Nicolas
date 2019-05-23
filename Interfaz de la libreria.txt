@@ -1,20 +1,22 @@
-mylib.dataset
+﻿mylib.dataset
 	load_csv()
 	load_json()
 
 mylib.models
-	KNN
-	SVD
-	BPR
-	WARP	
-	ALS
+	KNN (predictor - recomendador)
+	SVD (predictor - recomendador)
+	BPR (predictor - recomendador)
+	WARP (predictor - recomendador)	
+	ALS (recomendador)
 	User Average
 	Item Average
 	Global Average
 	
-	Cada modelo contiene los m�todos:
+	Cada modelo recomendador tiene los metodos:
 		__init__()
 		fit()
+		recommend()
+	Cada modelo predictor - recomendador tiene los metodos de un recomendador y agrega el metodo:	
 		predict()
 
 mylib.persistence

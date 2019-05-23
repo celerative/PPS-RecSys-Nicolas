@@ -24,6 +24,5 @@ model.fit(X,y)
 
 # get a prediction for specific users and items.
 uid = 1
-iid = 31
 rec = model.recommend(uid)
 print("the movie_id recommend for the user_id " + str(uid) + " is " + str(rec))
