@@ -1,9 +1,9 @@
 import pandas as pd
 
 from models.knn import KNNBasic
-#from models.knn import KNNBaseline
-#from models.knn import KNNWithMeans
-#from models.knn import KNNWithZScore
+from models.knn import KNNBaseline
+from models.knn import KNNWithMeans
+from models.knn import KNNWithZScore
 
 #Read File
 file_path = 'ratings_small.csv'

@@ -27,14 +27,18 @@ class SurpriseWrapper(PredictionModel):
         reader = Reader(line_format='user item rating', rating_scale=(1, 5))
         data = MyDataset(df, reader)
         trainset_for_surprise = data.build_full_trainset()
-        self.trainset = trainset_for_surprise
-        self.model.fit(trainset_for_surprise)
+        self.trainset = trainset_for_surprise #save trainset
+        self.model.fit(trainset_for_surprise) #fit model
     
-    def predict(self,uid,iid):
-        inner_uid = self.trainset.to_inner_uid(uid)
-        inner_iid = self.trainset.to_inner_iid(iid)
-        return self.model.predict(inner_uid,inner_iid).est
+    def predict(self,user_id,item_id):
+        #inner_uid = self.trainset.to_inner_uid(user_id)
+        #inner_iid = self.trainset.to_inner_iid(item_id)
+        #return self.model.predict(inner_uid,inner_iid).est
+        return self.model.predict(user_id,item_id).est
         #print("Users: ",self.model.trainset.n_users)
         #print("Items: ",self.model.trainset.n_items)
         #print("Ratings: ",self.model.trainset.n_ratings)
-        #print(self.trainset._raw2inner_id_users)   
+        #print(self.trainset._raw2inner_id_users)
+
+    def recommend(self,user_id):
+        return None
