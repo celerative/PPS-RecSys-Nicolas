@@ -1,13 +1,15 @@
 #Method: Dump: save a model instance
 
-def dump(obj,file):
+import pickle
+
+def dump(model,filename):
     """ 
     
     Write a pickled representation of 'obj' to the open file object 'file'
         
     Parameters
-        self : model to save
-        file : directory to save the model
+        model : model to save
+        filename : directory to save the model
     
     """
-    pass
+    pickle.dump(model,open(filename,'wb'))
