@@ -24,3 +24,10 @@ class LightFM_BPR(PredictionModel):
 
     def recommend(self,user_id):
         return None
+
+"""    def score(self, X, y=None):
+        # counts number of values bigger than mean
+        return 1
+
+    def get_params(self,deep=True):
+        return dict()"""
