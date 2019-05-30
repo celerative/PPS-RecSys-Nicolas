@@ -1,6 +1,6 @@
 from models.bpr import LightFM_BPR
 
-#from model_selection.cross_validation import cross_validation
+from model_selection.cross_validation import cross_validation
 
 import pandas as pd
 
@@ -31,4 +31,4 @@ iid = 31
 pred = model.predict(uid, iid)
 print("the prediction for the user " + str(uid) + " and the item " + str(iid) + " is " + str(pred))
 
-#cross_validation(model,X,y,cv=5)
+cross_validation(model,X,y,cv=5,scoring='precision')

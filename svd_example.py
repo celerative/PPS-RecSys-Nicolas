@@ -1,5 +1,7 @@
 from models.svd import SVD
 
+from model_selection.cross_validation import cross_validation
+
 import pandas as pd
 
 #Read File
@@ -18,13 +20,15 @@ X = df[['userId','movieId']].values
 y = df.rating
 
 #Create model instance
-model = SVD
+model = SVD()
 
 #Train model
-model.fit(X,y)
+#model.fit(X,y)
 
 # get a prediction for specific users and items.
-uid = 1
-iid = 31
-pred = model.predict(uid, iid)
-print("The rating predict for the user " + str(uid) + " and the movie " + str(iid) + " is " + str(pred))
+#uid = 1
+#iid = 31
+#pred = model.predict(uid, iid)
+#print("The rating predict for the user " + str(uid) + " and the movie " + str(iid) + " is " + str(pred))
+
+print(cross_validation(model,X,y,cv=5,scoring='neg_mean_squared_error'))
