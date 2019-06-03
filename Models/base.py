@@ -21,12 +21,14 @@ class Model(metaclass=ABCMeta):
         pass
     
     @abstractmethod
-    def recommend(self,user_id):
+    def recommend(self,user_id,N=1):
         """ Recommend any item to the user_id
 
-        Parameters:
+        Parameters :
             user_id : userID
 
+        Returns :
+            item_id : array of N [item_id]
         """
         pass
 

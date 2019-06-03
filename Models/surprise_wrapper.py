@@ -20,7 +20,8 @@ def make_surprise_wrapper(model):
     class SurpriseWrapper(PredictionModel):
         def __init__(self):
             self.model = model()
-            self.trainset = None
+            self.surprise_trainset = None
+            self.pandas_trainset = None
 
         def fit(self,X,y):
             data = {'userId': X[:,0], 'itemId': X[:,1], 'rating': y.values}
@@ -29,7 +30,8 @@ def make_surprise_wrapper(model):
             reader = Reader(line_format='user item rating', rating_scale=(1, 5))
             data = MyDataset(df, reader)
             trainset_for_surprise = data.build_full_trainset()
-            self.trainset = trainset_for_surprise #save trainset
+            self.pandas_trainset = df
+            self.surprise_trainset = trainset_for_surprise #save surprise trainset
             self.model.fit(trainset_for_surprise) #fit model
         
         def predict(self,X):
@@ -38,12 +40,19 @@ def make_surprise_wrapper(model):
             test_rating_result = rating
             pos = 0
             for (uid,iid,r_ui_trans) in data_list: 
-                test_rating_result[pos] = self.model.predict(uid,iid,r_ui_trans - self.trainset.offset,verbose=False).est
+                test_rating_result[pos] = self.model.predict(uid,iid,r_ui_trans - self.surprise_trainset.offset,verbose=False).est
                 pos = pos + 1
             return test_rating_result
 
-        def recommend(self,user_id):
-            return None
+        def recommend(self,user_id,N=1):
+            #Create array with [user_id] and all [item_id]
+            array = np.column_stack((np.repeat(user_id, self.pandas_trainset['itemId'].unique().shape[0]),self.pandas_trainset['itemId'].unique()))
+            #Predict rating
+            result = self.predict(array)
+            #Create array with [user_id][item_id] and predicted [rating]
+            array_result = np.column_stack((array,np.asarray(result)))
+            #Order descending (biggest 'rating' first) and them return 'N' first 'item_id' values
+            return array_result[array_result[:,2].argsort()[::-1]][:N][:,1]
 
         def get_params(self,deep=True):
             return dict()
