@@ -33,14 +33,13 @@ class Model(metaclass=ABCMeta):
 class PredictionModel(Model, metaclass=ABCMeta):
 
     @abstractmethod
-    def predict(self,user_id,item_id):
+    def predict(self,X):
         """ Predict rating that the user_id would give to the item_id 
         
         Parameters:
-            user_id : userID
-            item_id : itemID
+            X : [array] ; [user_id] x [item_id]
             
         Returns
-            C : array, shape (n_samples,)
+            C : list, [rating]
         """
         pass

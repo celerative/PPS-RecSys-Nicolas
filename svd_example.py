@@ -23,12 +23,9 @@ y = df.rating
 model = SVD()
 
 #Train model
-#model.fit(X,y)
+model.fit(X,y)
 
 # get a prediction for specific users and items.
-#uid = 1
-#iid = 31
-#pred = model.predict(uid, iid)
-#print("The rating predict for the user " + str(uid) + " and the movie " + str(iid) + " is " + str(pred))
+pred = model.predict(X)
 
-print(cross_validation(model,X,y,cv=5,scoring='neg_mean_squared_error'))
+#print(cross_validation(model,X,y,cv=5,scoring='neg_mean_squared_error'))

@@ -29,16 +29,19 @@ class LightFM_BPR(PredictionModel):
         #Fit the model
         self.model.fit(data)
 
-    def predict(self,uid,iid):
-        iid_array = [iid]
-        return self.model.predict(uid,iid_array)
+    def predict(self,X):
+        rating = [0] * X.shape[0]
+        data_list = list(zip(X[:,0],X[:,1]))
+        test_rating_result = rating
+        pos = 0
+        for (uid,iid) in data_list:
+            iid_array = [iid]
+            test_rating_result[pos] = np.asscalar(self.model.predict(uid,iid_array))
+            pos = pos + 1
+        return test_rating_result
 
     def recommend(self,user_id):
         return None
-
-    def score(self, X, y=None):
-        # counts number of values bigger than mean
-        return 1
 
     def get_params(self,deep=True):
         return dict()

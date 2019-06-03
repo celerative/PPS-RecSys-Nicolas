@@ -21,16 +21,13 @@ X = df[['userId','movieId']].values
 y = df.rating
 
 # Create KNN model
-model = KNNBasic
-#model = KNNBaseline
-#model = KNNWithMeans
-#model = KNNWithZScore
+model = KNNBasic()
+#model = KNNBaseline()
+#model = KNNWithMeans()
+#model = KNNWithZScore()
 
 # Fit model
 model.fit(X,y)
 
 # Testing model 
-uid = 1
-iid = 31
-pred = model.predict(uid,iid)
-print("The rating predict for the user " + str(uid) + " and the movie " + str(iid) + " is " + str(pred))
+pred = model.predict(X)

@@ -26,9 +26,7 @@ model = LightFM_BPR()
 model.fit(X,y)
 
 # get a prediction for specific users and items.
-uid = 1
-iid = 31
-pred = model.predict(uid, iid)
-print("the prediction for the user " + str(uid) + " and the item " + str(iid) + " is " + str(pred))
+pred = model.predict(X)
+#print("the prediction for the user " + str(uid) + " and the item " + str(iid) + " is " + str(pred))
 
-cross_validation(model,X,y,cv=5,scoring='precision')
+#cross_validation(model,X,y,cv=5,scoring='precision')

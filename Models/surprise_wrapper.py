@@ -47,4 +47,5 @@ def make_surprise_wrapper(model):
 
         def get_params(self,deep=True):
             return dict()
+
     return SurpriseWrapper
