@@ -42,6 +42,6 @@ class PredictionModel(Model, metaclass=ABCMeta):
             X : [array] ; [user_id] x [item_id]
             
         Returns
-            C : list, [rating]
+            rating : array of N [rating]
         """
         pass

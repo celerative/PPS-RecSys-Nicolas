@@ -36,9 +36,9 @@ def make_surprise_wrapper(model):
         
         def predict(self,X):
             rating = [0] * X.shape[0]
-            data_list = list(zip(X[:,0],X[:,1],rating))
-            test_rating_result = rating
+            test_rating_result = np.zeros(X.shape[0])
             pos = 0
+            data_list = list(zip(X[:,0],X[:,1],rating))
             for (uid,iid,r_ui_trans) in data_list: 
                 test_rating_result[pos] = self.model.predict(uid,iid,r_ui_trans - self.surprise_trainset.offset,verbose=False).est
                 pos = pos + 1

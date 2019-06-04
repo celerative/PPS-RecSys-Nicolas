@@ -21,10 +21,9 @@ class WARP(PredictionModel):
         self.model.fit(data)
 
     def predict(self,X):
-        rating = [0] * X.shape[0]
-        data_list = list(zip(X[:,0],X[:,1]))
-        test_rating_result = rating
+        test_rating_result = np.zeros(X.shape[0])
         pos = 0
+        data_list = list(zip(X[:,0],X[:,1]))
         for (uid,iid) in data_list:
             iid_array = [iid]
             test_rating_result[pos] = np.asscalar(self.model.predict(uid,iid_array))
