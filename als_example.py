@@ -1,7 +1,7 @@
 from models.als import ALS
 import pandas as pd
 
-from model_selection.cross_validation import cross_validation
+#from model_selection.cross_validation import cross_validation
 
 #Read File
 file_path = 'ratings_small.csv'
@@ -26,7 +26,8 @@ model.fit(X,y)
 
 # get a prediction for specific users and items.
 uid = 1
-rec = model.recommend(uid)
-print("the movie_id recommend for the user_id " + str(uid) + " is " + str(rec))
+N = 10
+rec = model.recommend(uid,N)
+print("the movie_id recommend for the user_id " + str(uid) + " are ", rec)
 
-cross_validation(model,X,y,cv=5,scoring='precision')
+#cross_validation(model,X,y,cv=5,scoring='precision')
