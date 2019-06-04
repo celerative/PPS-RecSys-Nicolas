@@ -18,7 +18,7 @@ df.rating = df.rating.astype(float)
 df.sort_values(by=['userId','movieId'],ascending=True)
 
 X = df[['userId','movieId']].values
-y = df.rating
+y = df.rating.values
 
 # Create KNN model
 model = KNNBasic()

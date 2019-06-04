@@ -24,7 +24,7 @@ def make_surprise_wrapper(model):
             self.pandas_trainset = None
 
         def fit(self,X,y):
-            data = {'userId': X[:,0], 'itemId': X[:,1], 'rating': y.values}
+            data = {'userId': X[:,0], 'itemId': X[:,1], 'rating': y}
             #Convert data to Surprise trainset using Pandas
             df = pd.DataFrame.from_dict(data)
             reader = Reader(line_format='user item rating', rating_scale=(1, 5))

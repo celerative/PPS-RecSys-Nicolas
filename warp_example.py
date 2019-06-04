@@ -14,7 +14,7 @@ df.rating = df.rating.astype(float)
 df.sort_values(by=['userId','movieId'],ascending=True)
 
 X = df[['userId','movieId']].values
-y = df.rating
+y = df.rating.values
 
 #Create model instance
 model = WARP()
@@ -24,3 +24,4 @@ model.fit(X,y)
 
 # get a prediction for specific users and items.
 pred = model.predict(X)
+print(pred)

@@ -17,7 +17,7 @@ df.rating = df.rating.astype(float)
 df.sort_values(by=['userId','movieId'],ascending=True)
 
 X = df[['userId','movieId']].values
-y = df.rating
+y = df.rating.values
 
 #Create model instance
 model = LightFM_BPR()
@@ -25,8 +25,8 @@ model = LightFM_BPR()
 #Train model
 model.fit(X,y)
 
-# get a prediction for specific users and items.
+# get a prediction for specific user.
 pred = model.predict(X)
-#print("the prediction for the user " + str(uid) + " and the item " + str(iid) + " is " + str(pred))
+print(pred)
 
 #cross_validation(model,X,y,cv=5,scoring='precision')
