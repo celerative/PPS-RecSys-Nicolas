@@ -23,5 +23,11 @@ model = WARP()
 model.fit(X,y)
 
 # get a prediction for specific users and items.
-pred = model.predict(X)
-print(pred)
+#pred = model.predict(X)
+#print(pred)
+
+# get top N recommendations for the user with [user_id] 'uid'
+uid = 1
+N = 10
+recommend = model.recommend(uid,N)
+print("The Top "+str(N)+" recommendations for the user_id "+str(uid)+" are ",recommend)
