@@ -30,4 +30,8 @@ model = KNNBasic()
 model.fit(X,y)
 
 # Testing model 
-pred = model.predict(X)
+#result = model.predict(X)
+uid = 1
+N = 10
+result = model.recommend(uid,N)
+#print(result)

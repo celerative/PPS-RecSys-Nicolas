@@ -1,10 +1,8 @@
 from models.svd import SVD
 
 from model_selection.cross_validation import cross_validation
-from accuracy.auc import auc
 
 import pandas as pd
-import numpy as np
 
 #Read File
 file_path = 'ratings_small.csv'
