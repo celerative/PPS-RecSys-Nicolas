@@ -1,0 +1,9 @@
+Improvement
+- Añadir un método de test donde se pueda dividir la data
+- Añadir más metricas de error en 'accuracy'
+- Añadir un modulo para cargar los principales datasets o un dataset custom
+
+Fixes
+- Cross validate
+- Grid search
+- Poner los ejemplos en la carpeta example
