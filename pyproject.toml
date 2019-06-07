@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "pyrecsys"
+version = "0.1.0"
+description = ""
+authors = ["Federico Marcos <federico.marcos@celerative.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+implicit = "^0.3.8"
+lightfm = "^1.15"
+scikit-learn = "^0.21.2"
+scikit-surprise = "^1.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+pandas = "^0.24.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
