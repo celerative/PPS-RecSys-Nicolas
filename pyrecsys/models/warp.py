@@ -27,7 +27,7 @@ class WARP(PredictionModel):
         data_list = list(zip(X[:,0],X[:,1]))
         for (uid,iid) in data_list:
             iid_array = [iid]
-            test_rating_result[pos] = np.asscalar(self.model.predict(uid,iid_array))
+            test_rating_result[pos] = self.model.predict(uid,iid_array).item()
             pos = pos + 1
         return test_rating_result
 

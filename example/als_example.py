@@ -2,8 +2,6 @@ from pyrecsys.models.als import ALS
 import pandas as pd
 import numpy as np
 
-from pyrecsys.accuracy.mae import mae
-
 #from model_selection.cross_validation import cross_validation
 
 #Read File
@@ -35,4 +33,4 @@ print("the movie_id recommend for the user_id " + str(uid) + " are ", rec)
 
 #cross_validation(model,X,y,cv=5,scoring='precision')
 
-print(mae(np.delete(df.loc[df['userId'] == uid].values,[0,2,3],1),rec))
+#print(np.delete(df.loc[df['userId'] == uid].values,[3],1))

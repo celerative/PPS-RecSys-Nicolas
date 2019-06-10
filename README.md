@@ -32,6 +32,7 @@ $ pip install -e .
 #### For Regression Model
 * Mean Absolute Error (MAE)  
 * Root Mean Square Error (RMSE)  
+* Fraction of Concordant Pairs (FCP)  
 #### For Classification Model
 * Area Under the Curve (AUC)  
 * Precision  
