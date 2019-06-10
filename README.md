@@ -17,21 +17,21 @@ $ pip install -e .
 #### Recomendation Model
 Alternating Least Squares (ALS)
 #### Prediction Model
->Bayesian Personalized Ranking (BPR)
->Global Average
->Item Average
->User Average
->K-Nearest Neighbors (KNN)
+Bayesian Personalized Ranking (BPR)  
+Global Average  
+Item Average  
+User Average  
+K-Nearest Neighbors (KNN)  
 * KNN Basic
 * KNN Baseline
 * KNN with Means
 * KNN with Zero Score
->Single Value Descomposition (SVD)
->Weighted Approximate-Rank Pairwise (WARP)
+Single Value Descomposition (SVD)  
+Weighted Approximate-Rank Pairwise (WARP)
 
 ### Accuracy
 #### For Regression Model
-Area Under the Curve (AUC)
+Area Under the Curve (AUC) <br />
 Mean Absolute Error (MAE)
 Root Mean Square Error (RMSE)
 #### For Classification Model
