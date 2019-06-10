@@ -5,9 +5,9 @@ Celerative
 ## Features
 
 #### Models
-###### Recomendation Model
+##### Recomendation Model
 Alternating Least Squares (ALS)
-###### Prediction Model
+##### Prediction Model
 Bayesian Personalized Ranking (BPR)
 Global Average
 Item Average
@@ -21,11 +21,11 @@ Single Value Descomposition (SVD)
 Weighted Approximate-Rank Pairwise (WARP)
 
 #### Accuracy
-###### For Regression Model
+##### For Regression Model
 Area Under the Curve (AUC)
 Mean Absolute Error (MAE)
 Root Mean Square Error (RMSE)
-###### For Classification Model
+##### For Classification Model
 Precision
 Recall
 F1
