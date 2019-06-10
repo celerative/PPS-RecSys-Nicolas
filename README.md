@@ -30,10 +30,10 @@ $ pip install -e .
 ----
 ### Accuracy
 #### For Regression Model
-* Area Under the Curve (AUC)  
 * Mean Absolute Error (MAE)  
 * Root Mean Square Error (RMSE)  
 #### For Classification Model
+* Area Under the Curve (AUC)  
 * Precision  
 * Recall  
 * F1  
