@@ -29,3 +29,6 @@ class ALS(Model):
             result[pos] = recomendation_tuple[0]
             pos = pos + 1
         return result
+
+    def get_params(self,deep=True):
+        return dict()

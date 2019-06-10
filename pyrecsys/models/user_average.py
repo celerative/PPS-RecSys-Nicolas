@@ -29,3 +29,6 @@ class UserAverage(PredictionModel):
 
     def predict(self,user_id):
         return self.user_average[user_id]
+
+    def get_params(self,deep=True):
+        return dict()

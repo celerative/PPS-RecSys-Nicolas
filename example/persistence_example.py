@@ -31,17 +31,13 @@ model.fit(X,y)
 #Save model
 dump(model,'bpr_save.sav')
 
-
-uid = 1
-iid = 31
-
 # get a prediction using original model
-pred = model.predict(uid, iid)
-print("Original Model: the prediction for the user " + str(uid) + " and the item " + str(iid) + " is " + str(pred))
+pred = model.predict(X)
+print("Original Model: the predictions are: " + str(pred))
 
 #Load model
 model_load = load('bpr_save.sav')
 
 # get a prediction using the load model
-pre = model_load.predict(uid, iid)
-print("Load Model: the prediction for the user " + str(uid) + " and the item " + str(iid) + " is " + str(pre))
+pre = model_load.predict(X)
+print("Loaded Model: the predictions are: " + str(pred))

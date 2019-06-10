@@ -26,8 +26,7 @@ model = LightFM_BPR()
 model.fit(X,y)
 
 # get a prediction for specific user.
-pred = model.predict(X)
-print(pred)
+#pred = model.predict(X)
 
 # get top N recommendations for the user with [user_id] 'uid'
 uid = 1

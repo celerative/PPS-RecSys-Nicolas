@@ -25,12 +25,12 @@ model = SVD()
 model.fit(X,y)
 
 # get a prediction for specific users and items.
-pred = model.predict(X)
+#pred = model.predict(X)
 
 # get N recommendations for user
 uid = 1
 N = 10
-#result = model.recommend(uid,N)
-#print(result)
+result = model.recommend(uid,N)
+print("the movie_id recommend for the user_id " + str(uid) + " are ", result)
 
 #print(cross_validation(model,X,y,cv=5,scoring='neg_mean_squared_error'))

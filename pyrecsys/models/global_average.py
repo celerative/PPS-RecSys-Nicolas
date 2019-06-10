@@ -23,3 +23,6 @@ class GlobalAverage(PredictionModel):
 
     def predict(self,user_id):
         return self.globalAverage
+
+    def get_params(self,deep=True):
+        return dict()

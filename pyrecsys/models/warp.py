@@ -40,3 +40,6 @@ class WARP(PredictionModel):
         array_result = np.column_stack((array,np.asarray(result)))
         #Order descending (biggest 'rating' first) and them return 'N' first 'item_id' values
         return array_result[array_result[:,2].argsort()[::-1]][:N][:,1]
+    
+    def get_params(self,deep=True):
+        return dict()

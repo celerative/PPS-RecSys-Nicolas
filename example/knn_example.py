@@ -31,4 +31,4 @@ model.fit(X,y)
 uid = 1
 N = 10
 result = model.recommend(uid,N)
-#print(result)
+print("the movie_id recommend for the user_id " + str(uid) + " are ", result)

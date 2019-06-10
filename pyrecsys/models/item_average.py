@@ -19,3 +19,6 @@ class ItemAverage(PredictionModel):
 
     def recommend(self,user_id,N=1): #recommend N users for de user with id: user_id
         return self.trainset['itemId'].unique()[:N]
+    
+    def get_params(self,deep=True):
+        return dict()
