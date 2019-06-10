@@ -1,6 +1,6 @@
-﻿#Library Interface
+﻿# Library Interface
 
-##Example  
+## Example  
 * example
 	- model_example
 		* als_example.py
@@ -14,7 +14,7 @@
 		* cosine_example.py
 		* pearson_example.py
 
-##pyrecsys
+## pyrecsys
 * accuracy
 	- mae
 	- rmse
