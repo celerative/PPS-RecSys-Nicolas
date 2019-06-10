@@ -31,6 +31,18 @@ class Model(metaclass=ABCMeta):
             item_id : array of N [item_id]
         """
         pass
+    
+    @abstractmethod
+    def get_params(self,deep=True):
+        """
+        Get parameters for this estimator
+
+        Parameters : 
+            deep : [boolean] - If True, will return the parameters for this estimator and contained subobjects that are estimators.
+
+        Returns : 
+            params : [dict] - Parameter names mapped to their values.
+        """
 
 class PredictionModel(Model, metaclass=ABCMeta):
 

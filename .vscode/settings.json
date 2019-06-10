@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/fede/.pyenv/versions/pyrecsys/bin/python"
+    "python.pythonPath": "C:\\Users\\Nicolas\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+    "python.linting.enabled": false
 }
