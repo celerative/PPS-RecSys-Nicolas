@@ -5,6 +5,7 @@ Celerative
 ## Install
 First, you need install [Numpy](https://www.numpy.org/), [Pandas](https://pandas.pydata.org/), [Scikit Learn](https://scikit-learn.org/stable/), [scipy Sparse](https://pypi.org/project/sparse/0.1.1/), [Surpise](http://surpriselib.com/), [Implicit](https://github.com/benfred/implicit), [LightFM](https://github.com/lyst/lightfm)
 
+Then, clone repository and install using pip
 ```
 $ git clone https://github.com/celerative/PPS-RecSys-Nicolas.git
 $ pip install -e .
@@ -16,17 +17,17 @@ $ pip install -e .
 #### Recomendation Model
 Alternating Least Squares (ALS)
 #### Prediction Model
-Bayesian Personalized Ranking (BPR)
-Global Average
-Item Average
-User Average
-K-Nearest Neighbors (KNN)
+>Bayesian Personalized Ranking (BPR)
+>Global Average
+>Item Average
+>User Average
+>K-Nearest Neighbors (KNN)
 * KNN Basic
 * KNN Baseline
 * KNN with Means
 * KNN with Zero Score
-Single Value Descomposition (SVD)
-Weighted Approximate-Rank Pairwise (WARP)
+>Single Value Descomposition (SVD)
+>Weighted Approximate-Rank Pairwise (WARP)
 
 ### Accuracy
 #### For Regression Model
