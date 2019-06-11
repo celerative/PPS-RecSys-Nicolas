@@ -1,5 +1,4 @@
 from pyrecsys.models.svd import SVD
-#from pyrecsys.model_selection.cross_validation import cross_validation
 from pyrecsys.accuracy.fcp import fcp
 
 import pandas as pd
@@ -35,8 +34,6 @@ pred = model.predict(X_uid)
 #N = 10
 #result = model.recommend(uid,N)
 #print("the movie_id recommend for the user_id " + str(uid) + " are ", result)
-
-#print(cross_validation(model,X,y,cv=5,scoring='neg_mean_squared_error'))
 
 y_true = np.column_stack((X[:,0],y))
 y_true = y_true[y_true[:,0] == uid]
