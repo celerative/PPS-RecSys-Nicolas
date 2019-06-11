@@ -4,6 +4,7 @@
 * Añadir un método de test donde se pueda dividir la data en un porcentaje X de 'train' y un porcentaje 1-X de 'test'
 * Añadir un modulo para cargar los principales datasets (como Movielens) o un dataset custom (desde un PATH o una URL)
 * Añadir modelos de algoritmos de clustering o neural network
+* Añadir metricas de error para recomendadores (como ALS)
 
 ## Fixes
 * Cross validate: 
