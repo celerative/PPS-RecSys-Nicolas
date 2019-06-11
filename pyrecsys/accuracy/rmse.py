@@ -3,7 +3,7 @@
 from sklearn.metrics import mean_squared_error
 import numpy as np
 
-def rmse(y_pred,y_true,**kwargs):
+def rmse(y_true,y_pred,**kwargs):
     """
     RMSE: Is calculated by looking at predicted ratings versus their hidden ground-truth
 
