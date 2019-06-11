@@ -1,7 +1,9 @@
 from pyrecsys.models.svd import SVD
-from pyrecsys.model_selection.cross_validation import cross_validation
+#from pyrecsys.model_selection.cross_validation import cross_validation
+from pyrecsys.accuracy.fcp import fcp
 
 import pandas as pd
+import numpy as np
 
 #Read File
 file_path = 'ratings_small.csv'
@@ -25,12 +27,17 @@ model = SVD()
 model.fit(X,y)
 
 # get a prediction for specific users and items.
-#pred = model.predict(X)
+uid = 1
+X_uid = X[ X[:,0] == uid ]
+pred = model.predict(X_uid)
 
 # get N recommendations for user
-uid = 1
-N = 10
-result = model.recommend(uid,N)
-print("the movie_id recommend for the user_id " + str(uid) + " are ", result)
+#N = 10
+#result = model.recommend(uid,N)
+#print("the movie_id recommend for the user_id " + str(uid) + " are ", result)
 
 #print(cross_validation(model,X,y,cv=5,scoring='neg_mean_squared_error'))
+
+y_true = np.column_stack((X[:,0],y))
+y_true = y_true[y_true[:,0] == uid]
+print("FCP: ",fcp(y_true[:,1], pred, X[X[:,0] == uid]))

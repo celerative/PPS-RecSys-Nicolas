@@ -2,27 +2,32 @@
 
 from surprise.accuracy import fcp
 import numpy as np
+from collections import defaultdict
 
-def fcp(y_true,y_pred):
+def fcp(y_true,y_pred,X=None):
     """
 
     Parameters : 
-        y_true : [narray] of [user_id][item_id][rating]
+        y_true : [narray] of [rating]
 
-        y_pred : [narray] of [user_id][item_id][rating]
+        y_pred : [narray] of [rating_estimated]
+
+        X : [narray] (optional) of [user_id][item_id]
+
+    Returns : 
+        fcp : [float]
     """
     predictions_u = defaultdict(list)
     nc_u = defaultdict(int)
     nd_u = defaultdict(int)
 
-    for u0, i0, r0 in y_true:
-        # Si existe el 'user_id' u0 y el 'item_id' i0 en y_pred
-            #est = rating de [u0][i0]
-        # Si no
-            #est = 0
+    y = np.column_stack((y_true,y_pred))
+    data = np.column_stack((X[:,0],y))
+
+    for u0, r0, est in data:
         predictions_u[u0].append((r0, est))
 
-    for u0, preds in iteritems(predictions_u):
+    for u0, preds in predictions_u.items():
         for r0i, esti in preds:
             for r0j, estj in preds:
                 if esti > estj and r0i > r0j:

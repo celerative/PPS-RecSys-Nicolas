@@ -1,7 +1,5 @@
 from pyrecsys.models.bpr import LightFM_BPR
 
-from pyrecsys.model_selection.cross_validation import cross_validation
-
 import pandas as pd
 
 #Read File
@@ -26,12 +24,12 @@ model = LightFM_BPR()
 model.fit(X,y)
 
 # get a prediction for specific user.
-#pred = model.predict(X)
+uid = 1
+X_uid = X[ X[:,0] == uid ]
+pred = model.predict(X_uid)
+print("predictions for the user_id "+str(uid)+" are: ",pred)
 
 # get top N recommendations for the user with [user_id] 'uid'
-uid = 1
-N = 10
-recommend = model.recommend(uid,N)
-print("The Top "+str(N)+" recommendations for the user_id "+str(uid)+" are ",recommend)
-
-#cross_validation(model,X,y,cv=5,scoring='precision')
+#N = 10
+#recommend = model.recommend(uid,N)
+#print("The Top "+str(N)+" recommendations for the user_id "+str(uid)+" are ",recommend)
