@@ -6,13 +6,12 @@ from collections import defaultdict
 
 def fcp(y_true,y_pred,X=None):
     """
-
     Parameters : 
         y_true : [narray] of [rating]
 
         y_pred : [narray] of [rating_estimated]
 
-        X : [narray] (optional) of [user_id][item_id]
+        X : [narray] of [user_id][item_id]
 
     Returns : 
         fcp : [float]

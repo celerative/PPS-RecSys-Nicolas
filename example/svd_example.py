@@ -36,7 +36,7 @@ print("predictions for the user_id "+str(uid)+" are: ",pred)
 # get N recommendations for user
 #N = 10
 #result = model.recommend(uid,N)
-#print("the movie_id recommend for the user_id " + str(uid) + " are: ", result)
+#print("The Top "+str(N)+" recommendations for the user_id " + str(uid) + " are: ", result)
 
 # acurracy
 y_true = np.column_stack((X[:,0],y))

@@ -1,4 +1,4 @@
-#Method: Cosine()
+#Metrics: Cosine
 
 import numpy as np
 
@@ -6,10 +6,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 def cosine(X,Y=None,dense_output=True):
     """
-    
     Compute the cosine similarity between all pairs of users (or items)
 
-    Parameters:
+    Parameters : 
         X : ndarray or sparse array, shape: (n_samples_X, n_features)
             Input data.
 
@@ -19,10 +18,9 @@ def cosine(X,Y=None,dense_output=True):
         dense_output : boolean (optional), default True
             Whether to return dense output even when the input is sparse. If False, the output is sparse if both input arrays are sparse.
 
-    Return:
+    Return : 
         kernel matrix : array
             An array with shape (n_samples_X, n_samples_Y).
-
     """
     #Reemplace NaN with Zero
     X[np.isnan(X)] = 0

@@ -1,4 +1,5 @@
 from pyrecsys.models.als import ALS
+
 import pandas as pd
 import numpy as np
 
@@ -27,4 +28,4 @@ model.fit(X,y)
 uid = 1
 N = 20
 rec = model.recommend(uid,N)
-print("the movie_id recommend for the user_id " + str(uid) + " are ", rec)
+print("The Top "+str(N)+" recommendations for the user_id " + str(uid) + " are: ", rec)

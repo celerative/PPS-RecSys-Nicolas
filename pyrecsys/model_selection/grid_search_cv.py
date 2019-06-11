@@ -4,11 +4,9 @@ from sklearn.model_selection import GridSearchCV
 
 def grid_search_cv(estimator,param_grid,scoring=None,**kwargs):
     """
-
     Exhaustive search over specified parameter values for an estimator.
 
-    Parameters:	
-
+    Parameters : 
         estimator : estimator object.
             This is assumed to implement the scikit-learn estimator interface. Either estimator needs to provide a score function, or scoring must be passed.
         
@@ -74,6 +72,5 @@ def grid_search_cv(estimator,param_grid,scoring=None,**kwargs):
         
         return_train_score : boolean, default=False
             If False, the cv_results_ attribute will not include training scores. Computing training scores is used to get insights on how different parameter settings impact the overfitting/underfitting trade-off. However computing the scores on the training set can be computationally expensive and is not strictly required to select the parameters that yield the best generalization performance.
-
     """
     return GridSearchCV(estimator,param_grid,scoring,**kwargs)

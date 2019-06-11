@@ -7,7 +7,6 @@ class Model(metaclass=ABCMeta):
     @abstractmethod
     def fit(self,X,y):
         """ 
-        
         Train an algorithm on a given training set.
 
             This method is called by every derived class as the first basic step for training an algorithm. 
@@ -22,7 +21,8 @@ class Model(metaclass=ABCMeta):
     
     @abstractmethod
     def recommend(self,user_id,N=1):
-        """ Recommend any item to the user_id
+        """
+        Recommend any item to the user_id
 
         Parameters :
             user_id : userID
@@ -48,12 +48,13 @@ class PredictionModel(Model, metaclass=ABCMeta):
 
     @abstractmethod
     def predict(self,X):
-        """ Predict rating that the user_id would give to the item_id 
+        """
+        Predict rating that the user_id would give to the item_id 
         
-        Parameters:
+        Parameters : 
             X : [array] ; [user_id] x [item_id]
             
-        Returns
+        Returns : 
             rating : array of N [rating]
         """
         pass

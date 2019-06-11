@@ -3,10 +3,9 @@ from sklearn.model_selection import cross_val_score
 
 def cross_validation(estimator,X,y=None,**kwargs):
     """
-    
     Evaluate a score by cross-validation
 
-    Parameters:	
+    Parameters : 
         estimator : estimator object implementing ‘fit’
             The object to use to fit the data.
         
@@ -48,9 +47,8 @@ def cross_validation(estimator,X,y=None,**kwargs):
         error_score : ‘raise’ | ‘raise-deprecating’ or numeric
             Value to assign to the score if an error occurs in estimator fitting. If set to ‘raise’, the error is raised. If set to ‘raise-deprecating’, a FutureWarning is printed before the error is raised. If a numeric value is given, FitFailedWarning is raised. This parameter does not affect the refit step, which will always raise the error. Default is ‘raise-deprecating’ but from version 0.22 it will change to np.nan.
 
-    Returns:
+    Returns :
         scores : array of float, shape=(len(list(cv)),)
             Array of scores of the estimator for each run of the cross validation.
-
     """
     return cross_val_score(estimator,X,y,**kwargs)

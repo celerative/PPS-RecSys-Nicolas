@@ -1,7 +1,6 @@
 # Model: User Average
 
 from .base import PredictionModel
-#from global_average import GlobalAverage
 
 import pandas as pd
 import numpy as np
@@ -20,11 +19,7 @@ class UserAverage(PredictionModel):
         self.trainset = pd.DataFrame.from_dict(data)
         self.user_average = self.trainset.groupby('userId')['rating'].mean() # user average
 
-    def recommend(self,user_id,N=1):
-        #if self.sort_user_average != None:
-        #    self.sort_user_average = self.user_average.sort_values()
-        #print(self.user_average.values[user_id-1])
-        
+    def recommend(self,user_id,N=1):        
         return self.trainset['itemId'].unique()[:N]
 
     def predict(self,user_id):

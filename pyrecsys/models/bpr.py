@@ -18,14 +18,6 @@ class LightFM_BPR(PredictionModel):
         #Create Coo-Matrix with X and y
         data = coo_matrix((y, (X[:,0], X[:,1])))
         self.trainset = np.column_stack((X,y)) #create array [[user_id][item_id][rating]]
-
-        #X = np.require(X,requirements=['C','O','W','A'])
-        #y = np.require(y,requirements=['C','W','A'])
-        #print("X flags: ")
-        #print(X.flags)
-        #print("y flags: ")
-        #print(y.flags)
-
         #Fit the model
         self.model.fit(data)
 
